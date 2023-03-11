@@ -9,38 +9,49 @@ html {
   padding-left: 1.5rem;
 }
 
+.title {
+  text-align: center;
+}
+
 .bayan {
   color: blue;
   cursor: pointer;
 }
-
 .bayan:hover {
   color: black;
 }
 
-.bayan-item {
-  margin-bottom: 1rem;
-  border: 0.1rem solid red;
+.bayan-item:not(:last-child) {
+  
 }
+
 .bayan-title {
+  padding: 1rem 0 1rem;
+  border-top: 0.1rem solid #cecece;
   display: flex;
   justify-content: space-between;
   align-items: center;
   font-size: 1.8rem;
+  line-height: 1;
   cursor: pointer;
+}
+.bayan-item:active .bayan-title {
+  color: blue;
+  opacity: .7;
 }
 
 .bayan-contribution-status {
   display: none;
   font-size: 1.8rem;
   transform: rotate(45deg);
-  transition: all 0.3s linear;
+  transition: transform .3s linear;
 }
-
 .bayan:hover .bayan-contribution-status {
   display: block;
 }
-
+.bayan-item:hover .bayan-contribution-status {
+  transform: none;
+}
 .bayan-radio:checked + .bayan-title .bayan-contribution-status {
   transform: none;
 }
@@ -50,16 +61,23 @@ html {
 }
 
 .bayan-img-wrapper {
-  line-height: 0;
   display: flex;
   justify-content: center;
+  line-height: 0;
 }
 
 .bayan-img {
   height: 0;
-  transition: height 0.1s linear;
+  transition: height .2s linear;
 }
-
+.bayan-title:hover + .bayan-img-wrapper .bayan-img {
+  height: 300px;
+  margin-bottom: 1.5rem;
+}
 .bayan-radio:checked ~ .bayan-img-wrapper .bayan-img {
   height: 300px;
+  margin-bottom: 1.5rem;
+}
+.bayan-item:active .bayan-img {
+  opacity: .7;
 }
