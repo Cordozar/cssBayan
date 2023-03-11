@@ -1,42 +1,61 @@
 html {
-  font-size: 10;
+  width: 100vw;
+  overflow-x: hidden;
+  font-size: 10px;
+  font-family: 'Caveat', cursive;
+  background-color: var(--color-background);
+  cursor: var(--cursor-default);
+}
+
+body {
+  /* overflow-y: scroll */
+}
+
+:root {
+  --color-background: #fdf5e6;
+  --color-black: #000000;
+  --color-main: #ff0000;
+  --cursor-attack: url('../img/717.png'), pointer;
+  --cursor-default: url('../img/484.png'), pointer;
 }
 
 .container {
-  max-width: 1190px;
+  max-width: 100rem;
   margin: 0 auto;
-  padding-right: 1.5rem;
-  padding-left: 1.5rem;
+  padding: 2rem;
+  cursor: var(--cursor-default);
 }
 
 .title {
+  margin: 0;
+  padding-bottom: 2rem;
+  font-size: 4rem;
   text-align: center;
 }
 
 .bayan {
-  color: blue;
+  color: var(--color-main);
   cursor: pointer;
 }
 .bayan:hover {
-  color: black;
-}
-
-.bayan-item:not(:last-child) {
-  
+  color: var(--color-black);
 }
 
 .bayan-title {
-  padding: 1rem 0 1rem;
-  border-top: 0.1rem solid #cecece;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  font-size: 1.8rem;
+  padding: 1rem 0 1rem;
+  font-size: 2.5rem;
   line-height: 1;
-  cursor: pointer;
+  border-top: .1rem solid #cecece;
+  cursor: var(--cursor-attack);
+}
+.bayan-radio:checked + .bayan-title {
+  color: var(--color-black);
 }
 .bayan-item:active .bayan-title {
-  color: blue;
+  color: var(--color-main);
   opacity: .7;
 }
 
@@ -64,18 +83,21 @@ html {
   display: flex;
   justify-content: center;
   line-height: 0;
+  cursor: var(--cursor-attack);
 }
 
 .bayan-img {
   height: 0;
+  border-radius: 20px;
+  cursor: var(--cursor-attack);
   transition: height .2s linear;
 }
 .bayan-title:hover + .bayan-img-wrapper .bayan-img {
-  height: 300px;
+  height: 30rem;
   margin-bottom: 1.5rem;
 }
 .bayan-radio:checked ~ .bayan-img-wrapper .bayan-img {
-  height: 300px;
+  height: 30rem;
   margin-bottom: 1.5rem;
 }
 .bayan-item:active .bayan-img {
