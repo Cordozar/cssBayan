@@ -5,6 +5,7 @@ html {
   font-family: 'Caveat', cursive;
   background-color: var(--color-background);
   cursor: var(--cursor-default);
+  -webkit-tap-highlight-color:  transparent;
 }
 
 body {
@@ -149,5 +150,3 @@ body {
     display: block;
   }
 }
-
-
