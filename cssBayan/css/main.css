@@ -20,16 +20,18 @@ body {
 }
 
 .container {
-  max-width: 100rem;
+  max-width: 90rem;
   margin: 0 auto;
   padding: 2rem;
   cursor: var(--cursor-default);
 }
 
+/* mobile 320x568 */
+
 .title {
   margin: 0;
   padding-bottom: 2rem;
-  font-size: 4rem;
+  font-size: 2.5rem;
   text-align: center;
 }
 
@@ -37,8 +39,10 @@ body {
   color: var(--color-main);
   cursor: pointer;
 }
-.bayan:hover {
-  color: var(--color-black);
+@media (hover: hover) {
+  .bayan:hover {
+    color: var(--color-black);
+  }
 }
 
 .bayan-title {
@@ -46,7 +50,7 @@ body {
   justify-content: space-between;
   align-items: center;
   padding: 1rem 0 1rem;
-  font-size: 2.5rem;
+  font-size: 2rem;
   line-height: 1;
   border-top: .1rem solid #cecece;
   cursor: var(--cursor-attack);
@@ -54,22 +58,20 @@ body {
 .bayan-radio:checked + .bayan-title {
   color: var(--color-black);
 }
-.bayan-item:active .bayan-title {
+.bayan-item:active .bayan-title:not(.bayan-radio:checked + .bayan-title) {
   color: var(--color-main);
   opacity: .7;
 }
 
 .bayan-contribution-status {
-  display: none;
   font-size: 1.8rem;
   transform: rotate(45deg);
   transition: transform .3s linear;
 }
-.bayan:hover .bayan-contribution-status {
-  display: block;
-}
-.bayan-item:hover .bayan-contribution-status {
-  transform: none;
+@media (hover: hover) {
+  .bayan-item:hover .bayan-contribution-status {
+    transform: none;
+  }
 }
 .bayan-radio:checked + .bayan-title .bayan-contribution-status {
   transform: none;
@@ -82,24 +84,67 @@ body {
 .bayan-img-wrapper {
   display: flex;
   justify-content: center;
+  width: 100%;
+  overflow: hidden;
   line-height: 0;
+  border-radius: 3rem;
   cursor: var(--cursor-attack);
+}
+@media (hover: hover) {
+  .bayan-title:hover + .bayan-img-wrapper {
+    margin-bottom: 1.5rem;
+  }
+}
+.bayan-radio:checked ~ .bayan-img-wrapper {
+  margin-bottom: 1.5rem;
 }
 
 .bayan-img {
   height: 0;
-  border-radius: 20px;
+  border-radius: 3rem;
   cursor: var(--cursor-attack);
   transition: height .2s linear;
 }
-.bayan-title:hover + .bayan-img-wrapper .bayan-img {
-  height: 30rem;
-  margin-bottom: 1.5rem;
+@media (hover: hover) {
+  .bayan-title:hover + .bayan-img-wrapper .bayan-img {
+    height: 30rem;
+  }
 }
 .bayan-radio:checked ~ .bayan-img-wrapper .bayan-img {
   height: 30rem;
-  margin-bottom: 1.5rem;
 }
-.bayan-item:active .bayan-img {
+.bayan-item:active
+  .bayan-img:not(.bayan-radio:checked ~ .bayan-img-wrapper .bayan-img) {
   opacity: .7;
+}
+#bayan-img-last {
+  margin: 0;
+}
+
+/* tablet 820x1180 */
+
+@media (min-width: 321px) {
+  .title {
+    font-size: 3.5rem;
+  }
+
+  .bayan-title {
+    font-size: 3rem;
+  }
+}
+
+/* desktop 1920×1080 */
+
+@media (min-width: 821px) {
+  .container {
+    padding-bottom: 10rem;
+  }
+
+  .title {
+    font-size: 4rem;
+  }
+
+  .bayan-title {
+    font-size: 3.5rem;
+  }
 }
